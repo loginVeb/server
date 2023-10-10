@@ -12,7 +12,10 @@ const conn = createConnection({
     host:process.env.DB_HOST, 
     user:process.env.DB_USERNAME, 
     password:process.env.DB_PASSWORD, 
-    database:process.env.DB_DBNAME
+    database:process.env.DB_DBNAME,
+    waitForConnections:true, 
+    connectionLimit:10,
+    queueLimit:0
 })
 
 conn.connect( (err) => { 
@@ -22,10 +25,10 @@ if(err){
 else{
     console.log('uraaa')
 }
-})
+});
 
-
-app.listen(3306, () => {
+const port = process.env.PORT || 3306;
+app.listen(port, () => {
     console.log('listening at http://localhost:3306');
 });
 
@@ -39,7 +42,7 @@ conn.query('SELECT * FROM user',(err,result,field)=>{
 
 
 
-app.get('/', (req , res) => {
+app.get('/api', (req , res) => {
     //console.log(dbdata);
     res.send(dbdata);
     res.end();
