@@ -13,7 +13,6 @@ const conn = createConnection({
     user:process.env.DB_USERNAME, 
     password:process.env.DB_PASSWORD, 
     database:process.env.DB_DBNAME, 
-    port:process.env.PORT, 
     waitForConnections:true, 
     connectionLimit:10,
     queueLimit:0
@@ -29,7 +28,7 @@ else{
 })
 
 
-app.listen(port, () => {
+app.listen(3306, () => {
     console.log('listening at http://localhost:3306');
 });
 
