@@ -1,5 +1,3 @@
-
-
 import { createConnection } from 'mysql';
 import express from 'express';
 import cors from 'cors';
