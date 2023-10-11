@@ -22,28 +22,26 @@ else{
 }
 });
 
+
+
+let r ;
+let dbdata;
+conn.query('SELECT * FROM user',(err,result,field)=>{
+ dbdata = result;
+ r = err;
+ //console.log(dbdata);
+})
+
+app.get('/api', (req , res) => {
+    console.log(dbdata);
+    res.send(dbdata);
+    res.send(r);
+});
+
 const port = process.env.PORT || 3306 ;
 app.listen(port, () => {
     console.log('listening at http://localhost:3306');
 });
-
-
-let dbdata;
-conn.query('SELECT * FROM user',(err,result,field)=>{
- dbdata = result;
- //console.log(dbdata);
-})
-
-
-
-
-app.get('/api', (req , res) => {
-    //console.log(dbdata);
-    res.send(dbdata);
-    res.end();
-});
-
-
 // npm run xxx
 // git add ./
 // git commit -am '
