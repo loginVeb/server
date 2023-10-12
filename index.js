@@ -7,10 +7,10 @@ const app = express();
 app.use(cors());
 
 const conn = createConnection({
-    host:process.env.DB_HOST, 
-    user:process.env.DB_USERNAME, 
-    password:process.env.DB_PASSWORD, 
-    database:process.env.DB_DBNAME
+    host:process.env.DB_HOST || 'oyu.h.filess.io', 
+    user:process.env.DB_USERNAME || 'auth_symbolburn', 
+    password:process.env.DB_PASSWORD || '4b19a847f003962746a0cbf1534ae96aa2c30b0e', 
+    database:process.env.DB_DBNAME || 'auth_symbolburn'
 })
 
 conn.connect( (err) => { 
@@ -32,7 +32,7 @@ conn.query('SELECT * FROM user',(err,result,field)=>{
  //console.log(dbdata);
 })
 
-app.get('/api', (req , res) => {
+app.get('/', (req , res) => {
     console.log(dbdata);
     res.send(dbdata);
     res.send(r);
@@ -49,6 +49,6 @@ app.listen(port, () => {
 // git log
 // git stash
 // git push -f origin HEAD^:main 
-// npm run build
+// npm run start
 // Удолить локально коммит 
 // git reset HEAD~
