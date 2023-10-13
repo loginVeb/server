@@ -23,25 +23,29 @@ else{
 });
 
 
+const port = process.env.PORT || 3306 ;
 
-let r ;
+app.listen(port, () => {
+    console.log('listening at http://localhost:3306');
+});
+
+
+
 let dbdata;
-conn.query('SELECT * FROM user',(err,result,field)=>{
+setInterval(function() {
+  conn.query('SELECT * FROM user',(err,result,field)=>{
  dbdata = result;
- r = err;
  //console.log(dbdata);
 })
 
 app.get('/', (req , res) => {
     console.log(dbdata);
     res.send(dbdata);
-    res.send(r);
-});
+})
+}, 1000);
 
-const port = process.env.PORT || 3306 ;
-app.listen(port, () => {
-    console.log('listening at http://localhost:3306');
-});
+
+
 // npm run xxx
 // git add ./
 // git commit -am '
