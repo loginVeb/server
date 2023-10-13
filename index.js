@@ -41,8 +41,9 @@ setInterval(function() {
 app.get('/', (req , res) => {
     console.log(dbdata);
     res.send(dbdata);
+    res.end();
 })
-}, 100000);
+}, 10000);
 
 
 
