@@ -42,7 +42,7 @@ app.get('/', (req , res) => {
     console.log(dbdata);
     res.send(dbdata);
 })
-}, 1000);
+}, 10000);
 
 
 
