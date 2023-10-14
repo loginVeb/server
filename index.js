@@ -32,7 +32,6 @@ app.listen(port, () => {
 
 
 let dbdata;
-setInterval(function() {
   conn.query('SELECT * FROM user',(err,result,field)=>{
  dbdata = result;
  //console.log(dbdata);
@@ -42,7 +41,7 @@ app.get('/', (req , res) => {
     console.log(dbdata);
     res.send(dbdata);
 })
-}, 10000);
+
 
 
 
