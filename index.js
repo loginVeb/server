@@ -34,11 +34,11 @@ app.listen(port, () => {
 let dbdata;
   conn.query('SELECT * FROM user',(err,result,field)=>{
  dbdata = result;
- //console.log(dbdata);
+ console.log(dbdata);
 })
 
 app.get('/', (req , res) => {
-   // console.log(dbdata);
+    console.log(dbdata);
     res.send(dbdata);
     res.end();
 })
