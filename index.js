@@ -7,10 +7,10 @@ const app = express();
 app.use(cors());
 
 const conn = createConnection({
-    host:process.env.DB_HOST || 'oyu.h.filess.io', 
-    user:process.env.DB_USERNAME || 'auth_symbolburn', 
-    password:process.env.DB_PASSWORD || '4b19a847f003962746a0cbf1534ae96aa2c30b0e', 
-    database:process.env.DB_DBNAME || 'auth_symbolburn'
+    host:process.env.DB_HOST , 
+    user:process.env.DB_USERNAME, 
+    password:process.env.DB_PASSWORD , 
+    database:process.env.DB_DBNAME 
 })
 
 conn.connect( (err) => { 
